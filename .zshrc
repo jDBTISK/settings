@@ -36,6 +36,9 @@ if which rbenv > /dev/null; then
   eval "$(rbenv init - zsh)"
 fi
 
+# pear
+export PATH=$HOME/pear/bin:$PATH
+
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 

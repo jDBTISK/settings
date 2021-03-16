@@ -33,6 +33,7 @@ curl -o _docker-compose https://raw.githubusercontent.com/docker/compose/$(docke
 
 - `pyenv`
 - `rbenv`
+- `pear`
 - `nodebrew`
 - `awscli v2`
 - `terraform`
