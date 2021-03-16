@@ -18,7 +18,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 setopt PROMPT_SUBST
-PS1='%F{cyan}%n%f %F{blue}[%/]%f%F{magenta}$(__git_ps1) %f%F{cyan}$%f '
+PS1='%F{cyan}%n%f %F{yellow}[%/]%f%F{magenta}$(__git_ps1) %f%F{cyan}$%f '
 
 # 色を使用
 autoload -Uz colors && colors
