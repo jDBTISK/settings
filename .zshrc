@@ -47,7 +47,7 @@ autoload bashcompinit && bashcompinit
 complete -C '/usr/local/bin/aws_completer' aws
 
 # terraform
-export TF_LOG=DEBUG
+export TF_LOG=TRACE
 export TF_LOG_PATH='./terraform.log'
 
 # aliases
@@ -58,5 +58,9 @@ alias history='history -Di'
 alias vish='vim ~/.zshrc'
 alias sosh='source ~/.zshrc'
 alias cdd='cd ~/Downloads/'
+
+# コンテナ一括削除
+alias rmdocker=docker rm $(docker ps -aq)
+
 # FIXME: 定期的に ua 直して
 alias wgetwin='wget --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"'
