@@ -47,7 +47,6 @@ export TF_LOG_PATH='./terraform.log'
 # aliases
 alias ll='ls -lhAF'
 
-# よく使うコマンドを簡略化
 alias vish='vim ~/.bashrc'
 alias sosh='source ~/.bashrc'
 

@@ -54,7 +54,6 @@ export TF_LOG_PATH='./terraform.log'
 alias ll='ls -lhAF'
 alias history='history -Di'
 
-# よく使うコマンドを簡略化
 alias vish='vim ~/.zshrc'
 alias sosh='source ~/.zshrc'
 alias cdd='cd ~/Downloads/'
