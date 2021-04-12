@@ -59,7 +59,7 @@ alias sosh='source ~/.zshrc'
 alias cdd='cd ~/Downloads/'
 
 # コンテナ一括削除
-alias rmdocker=docker rm $(docker ps -aq)
+alias rmdocker='docker rm $(docker ps -aq)'
 
 # FIXME: 定期的に ua 直して
 alias wgetwin='wget --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"'
