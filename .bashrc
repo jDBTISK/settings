@@ -37,6 +37,12 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+if which nodenv > /dev/null; then
+  eval "$(nodenv init - --no-rehash)"
+fi
+
 # awscli v2
 complete -C '/usr/local/bin/aws_completer' aws
 

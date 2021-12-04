@@ -28,8 +28,12 @@ setopt share_history
 
 # pyenv
 if which pyenv > /dev/null; then
+  eval "$(pyenv init --path)"
   eval "$(pyenv init - zsh)"
 fi
+
+# poetry
+export PATH="$HOME/.poetry/bin:$PATH"
 
 # rbenv
 if which rbenv > /dev/null; then
@@ -39,27 +43,30 @@ fi
 # pear
 export PATH=$HOME/pear/bin:$PATH
 
-# nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+# nodenv
+if which nodenv > /dev/null; then
+  eval "$(nodenv init - --no-rehash)"
+fi
 
 # awscli v2
 autoload bashcompinit && bashcompinit
 complete -C '/usr/local/bin/aws_completer' aws
+alias ssm='aws ssm start-session --document-name AWS-StartInteractiveCommand --parameters command=/bin/bash --target'
 
 # terraform
-export TF_LOG=TRACE
-export TF_LOG_PATH='./terraform.log'
+export TF_LOG=DEBUG
+export TF_LOG_PATH="$HOME/terraform.log"
+
+export PATH="$HOME/.tfenv/bin:$PATH"
 
 # aliases
 alias ll='ls -lhAF'
 alias history='history -Di'
 
+# よく使うコマンドを簡略化
 alias vish='vim ~/.zshrc'
 alias sosh='source ~/.zshrc'
 alias cdd='cd ~/Downloads/'
 
 # コンテナ一括削除
 alias rmdocker='docker rm $(docker ps -aq)'
-
-# FIXME: 定期的に ua 直して
-alias wgetwin='wget --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"'
