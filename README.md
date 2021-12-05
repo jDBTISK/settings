@@ -34,7 +34,7 @@ curl -o _docker-compose https://raw.githubusercontent.com/docker/compose/$(docke
 - `pyenv`
 - `rbenv`
 - `pear`
-- `nodebrew`
+- `nodenv`
 - `awscli v2`
 - `tfenv`
 
@@ -66,3 +66,11 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 - タブ横分割: `cmd + d`
 - タブ縦分割: `cmd + D`
 - パネル移動: `cmd + ([|])`
+
+### .lima
+
+```bash
+brew install lima
+vi ~/.lima/docker/lima.yaml
+export DOCKER_HOST=ssh://localhost:60006
+```
