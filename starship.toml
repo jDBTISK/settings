@@ -29,7 +29,7 @@ symbol = ""
 format = "[$symbol ($branch)]($style) "
 
 [git_status]
-style = "fg:#00ff7f"
+style = "fg:#ffa500"
 conflicted = '[󰇼\($count\)](fg:#dc143c)'
 ahead = '[\($count\)](fg:#00008b)'
 behind = '[\($count\)](fg:#ffd700)'
