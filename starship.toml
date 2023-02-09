@@ -1,0 +1,90 @@
+"$schema" = "https://starship.rs/config-schema.json"
+scan_timeout = 10
+add_newline = true
+
+[character]
+error_symbol = "[彡\\(;\\)\\(;\\)](bold red)"
+success_symbol = "[彡\\(^\\)\\(^\\)](bold green)"
+
+[username]
+disabled = true
+
+[hostname]
+ssh_symbol = "🌏"
+style = "bold italic fg:#7fffd4"
+format = "[$ssh_symbol \\[$hostname\\] ]($style)"
+
+[directory]
+style = "bold fg:#ff11fe"
+truncation_length = 15
+truncate_to_repo = false
+truncation_symbol = "…/"
+
+[package]
+disabled = true
+
+[git_branch]
+style = "fg:#fefefe bg:#cc3300"
+symbol = ""
+format = "[$symbol ($branch)]($style) "
+
+[git_status]
+style = "fg:#00ff7f"
+conflicted = '[󰇼\($count\)](fg:#dc143c)'
+ahead = '[\($count\)](fg:#00008b)'
+behind = '[\($count\)](fg:#ffd700)'
+diverged = '[\($count\)](fg:#ff0000)'
+untracked = '[\($count\)](fg:#00ff00)'
+modified = '[\($count\)](fg:#ffdab9)'
+staged = '[\($count\)](fg:#00fa9a)'
+renamed = '[凜\($count\)](fg:#1e90ff)'
+deleted = '[\($count\)](fg:#ff0000)'
+
+[git_metrics]
+disabled = false
+
+[docker_context]
+format = "[$symbol$context ]($style)"
+detect_files = [
+  "docker-compose.yml",
+  "docker-compose.yaml",
+  "compose.yml",
+  "compose.yaml",
+  "Dockerfile"
+]
+
+[aws]
+force_display = true
+
+[aws.region_aliases]
+ap-northeast-1 = "🇯🇵"
+
+[terraform]
+symbol = ""
+format = "[$symbol $workspace]($style) "
+detect_extensions = ["tf", "tfplan", "tfstate", "tfvars"]
+
+[golang]
+symbol = ""
+format = "[$symbol ($version) ]($style)"
+
+[nodejs]
+symbol = ""
+format = "[$symbol $version ]($style)"
+
+[php]
+format = "[$symbol($version) ]($style)"
+
+[python]
+format = "[${symbol}${pyenv_prefix}(${version}) (\\($virtualenv\\)) ]($style)"
+
+[custom.project]
+command = """
+if test $(git config user.name) = $(git config --global user.name); then
+  echo 🏠
+else
+  echo 🏢
+fi
+"""
+when = "git status; test $? = 0"
+format = "[$output]($style)"

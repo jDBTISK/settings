@@ -1,16 +1,22 @@
 # 日本語を使用
 export LANG=ja_JP.UTF-8
+export LANGUAGE=ja_JP:ja
+export TZ=JST-9
 
 # git 設定
-source $HOME/.bash/.git-completion.bash
-source $HOME/.bash/.git-prompt.sh
+if [ -f ${HOME}/.bash/git-prompt.sh ]; then
+  source ${HOME}/.bash/git-prompt.sh
+fi
+if [ -f ${HOME}/.bash/git-completion.bash ]; then
+  source ${HOME}/.bash/git-completion.bash
+fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 
-PS1='\e[36m\]\u \e[33m\][\w]\e[35m\]$(__git_ps1) \e[36m\]\$ \e[0m\]'
+PS1="\e[36m\]\u \e[33m\][\w]\e[35m\]$(__git_ps1)\n\e[34m\]\$ \e[0m\]"
 
 # history
 HISTTIMEFORMAT='%F %T '
@@ -30,6 +36,11 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
+# starship
+if which starship > /dev/null; then
+  eval "$(starship init bash)"
+fi
+
 # pyenv
 PYENV_ROOT="${HOME}/.pyenv"
 PATH="${PYENV_ROOT}/bin:${PATH}"
@@ -37,24 +48,14 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
-if which nodenv > /dev/null; then
-  eval "$(nodenv init - --no-rehash)"
-fi
+# cargo
+PATH="$HOME/.cargo/bin:$PATH"
 
 # awscli v2
 complete -C '/usr/local/bin/aws_completer' aws
-
-# terraform
-export TF_LOG=TRACE
-export TF_LOG_PATH='./terraform.log'
 
 # aliases
 alias ll='ls -lhAF'
 
 alias vish='vim ~/.bashrc'
 alias sosh='source ~/.bashrc'
-
-# コンテナ一括削除
-alias rmdocker='docker rm $(docker ps -aq)'

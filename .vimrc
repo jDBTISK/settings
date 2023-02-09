@@ -4,6 +4,8 @@ call vundle#begin()
   Plugin 'VundleVim/Vundle.vim'
   " エディタのテーマ
   Plugin 'tomasr/molokai'
+  " アイコン
+  Plugin 'ryanoasis/vim-devicons'
   " インデント補助
   Plugin 'nathanaelkane/vim-indent-guides'
   " ディレクトリツリー表示
@@ -115,8 +117,14 @@ set virtualedit=onemore
 let g:indent_guides_enable_on_vim_startup = 1
 
 " フォント
-let g:molokai_original = 1
-let g:rehash256 = 1
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+set encoding=utf-8
+" フォルダアイコンを表示
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
+let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
 
 " ツリー表示
 autocmd StdinReadPre * let s:std_in=1
